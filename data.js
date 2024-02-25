@@ -14,7 +14,6 @@ const listLink = [
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
     ],
   },
   {
@@ -24,17 +23,11 @@ const listLink = [
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
     ],
   },
   {
     page : 'music' ,
     link : [
-      {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
-      {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
       {label: 'pay', icon: '' , url: ''},
