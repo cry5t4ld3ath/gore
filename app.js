@@ -60,7 +60,7 @@ sidebar.innerHTML = listLink.map( item => {
   const { link , page } = item ;
 
   return `<section class="section-sidebar">
-            <h4>${page}</h4>
+            <h4 class="h4-sidebar">${page}</h4>
             ${link.map( link => {
               return `<a href="" class="title-sidebar">
                         <i>${link.icon}</i>
@@ -88,6 +88,58 @@ const headerContainer = () => {
     containerHeader.classList.toggle('header-container' , !(scrollY > 80));
 
 }
+
+
+// ********************* class ************************
+class tilt {
+  constructor(containerSelector) {
+    this.container = document.querySelector(containerSelector);
+    this.element = this.container.querySelector('.tilt-element');
+    this.glareElement = this.element.querySelector('.rr')
+
+
+    this.init();
+    this.setupEventListeners();
+  }
+
+  init() {
+    this.container.addEventListener('mousemove' , this.handleMouseMove.bind(this));
+    this.container.addEventListener("mouseleave" , this.resetTransform.bind(this));
+  }
+
+  setupEventListeners() {
+    this.container.addEventListener('click' , this.handleContainerClick.bind(this))
+  }
+
+  handleMouseMove(e) {
+    const {clientX , clientY } = e;
+    const containerRect = this.container.getBoundingClientRect();
+    const offsetX = (clientX - containerRect.left) / containerRect.width - 0.5 ;
+    const offsetY = (clientY - containerRect.top) / containerRect.height - 0.5 ; 
+
+    const tiltValue = 80;
+    const transformValue = `rotateX(${tiltValue * offsetY}deg) rotateY(${tiltValue * offsetX}deg)`;
+
+    this.element.style.transform = transformValue;
+
+    // Adjust glare position based on mouse movement
+    const glareTransformValue = `translate(${-offsetX * 500}px, ${-offsetY * 500}px)`;
+    this.glareElement.style.transform = glareTransformValue;
+
+  }
+
+  resetTransform() {
+    this.element.style.transform = "none";
+    this.glareElement.style.transform = "none";
+  }
+
+  handleContainerClick() {
+    alert('container clicked!')
+  }
+};
+
+
+const tiltr = new tilt('.tilt-container');
 
 
 // ************* show function ****************
